@@ -67,17 +67,28 @@ The value (r of star) is greater than r of dino.
 
 ### Exercise 4
 
-(Add code and narrative as needed. Note that two R chunks are given but they are not labeled. Use the convention from above to name them appropriately.)
+let's filter in circle dataset and plot the data:
 
-```{r}
-
+```{r plot-circle}
+#filter circle data set
+circle_data <- datasaurus_dozen %>%
+  filter(dataset == "circle")
+#plot circle data set
+ggplot(data = circle_data, mapping = aes(x = x, y = y)) +
+  geom_point()
 
 ```
 
-```{r}
 
+And next calculate the correlation between `x` and `y` in the circle dataset:
+ 
+```{r cor-circle}
+#correlation between x and y
+circle_data %>%
+  summarize(r = cor(x, y))
 
 ```
+The value (r of circle) is less than r of dino.
 
 ### Exercise 5
 
